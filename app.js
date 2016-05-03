@@ -46,7 +46,7 @@ router.get("/sonuc", function (req, res) {
             if (err) { console.error(err.message); res.render('sonuc', {result: 'Oracle error!'}); return; }
 
             connection.execute(
-                "select score from bonus.account_score " +
+                "select score from account_score " +
                 "where account_number=:0 ",
                 customerNo.split(),  // for excample -> ['6820393'],  // bind value for :id
                 function(err, result)
@@ -82,7 +82,7 @@ router.get("/updateScore", function(req, res, next){
             if (err) { console.error(err.message); res.render('sonuc', {result: 'Oracle error!'}); return; }
 
             connection.execute(
-                "UPDATE bonus.account_score SET score = :score WHERE account_number = :accNo",
+                "UPDATE account_score SET score = :score WHERE account_number = :accNo",
                 {score: nextScore, accNo: customerNo},
                 {autoCommit : true},
                 function(err, result)
