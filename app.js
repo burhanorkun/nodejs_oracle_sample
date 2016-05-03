@@ -37,9 +37,9 @@ router.get("/sonuc", function (req, res) {
     var currentScore;
     oracledb.getConnection(
         {
-            user          : "bonus",
-            password      : "d_bonus",
-            connectString : "bscsdev"
+            user          : "xxxxx",
+            password      : "xxxxx",
+            connectString : "xxxxx"
         },
         function(err, connection)
         {
@@ -73,9 +73,9 @@ router.get("/updateScore", function(req, res, next){
 
     oracledb.getConnection(
         {
-            user          : "bonus",
-            password      : "d_bonus",
-            connectString : "bscsdev"
+            user          : "xxxxx",
+            password      : "xxxxx",
+            connectString : "xxxxx"
         },
         function(err, connection)
         {
