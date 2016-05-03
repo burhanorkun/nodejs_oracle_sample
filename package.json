@@ -1,0 +1,21 @@
+{
+  "name": "sarikutu",
+  "version": "1.0.0",
+  "description": "Score Update Screen",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Burhan Orkun",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "cookie-parser": "^1.4.1",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "hogan-express": "^0.5.2",
+    "oracledb": "^1.5.0",
+    "path": "^0.12.7",
+    "soap": "^0.11.4"
+  }
+}

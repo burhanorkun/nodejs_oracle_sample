@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Query the Current Score</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="topDeck">
+        <div class="logo">
+            <h1>Screen of the Your Current Score</h1>
+        </div>
+    </div>
+    <div class="gallery">
+        <ul>
+            <h2>Customer No: {{customerNo}} ,Result => {{result}} Current Score.</h2>
+        </ul>
+        <form action="/updateScore">
+            <input type="text" name="nextScore" value="" id="nextScore">
+            <input type="hidden" name="customerNo" value="{{customerNo}}">
+            <input type="submit" value="Update Score">
+        </form>
+        <br>
+        <br>
+        <form action="/">
+            <input type="submit" value="Query again">
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,216 @@
+@import url(http://fonts.googleapis.com/css?family=Keania+One);
+
+body,html {
+	position:relative;
+	width:100%;
+	height:100%;
+	margin:0px;
+	padding:0px;
+}
+
+.container {
+	position:relative;
+	height:100%;
+	overflow: hidden;
+}
+
+.container .topDeck {
+	position: relative;
+	top:0px;
+	width:100%;
+	min-width:960px;
+	height:70px;
+	background: rgba(60, 60, 60, 0.19);
+	border-bottom:4px solid rgb(50,150,255);
+	border-top: 4px solid rgb(50,150,255);
+	z-index:1;
+}
+
+.topDeck .logo {
+	position:absolute;
+	background: rgb(0, 158, 255);
+	height: 70px;
+	width: 1617px;
+}
+
+.topDeck .controls {
+	position:absolute;
+	/* border:1px solid red; */
+	width:700px;
+	height:65px;
+	left:320px;
+	top:1px;
+}
+
+.topDeck .controls .uploadPic {
+	font-size: 17px;
+	color:#FFF;
+
+	height: 24px;
+	padding: 6px;
+	font-weight: lighter;
+	/* 	border:1px solid #000; */
+	width:600px;
+	position:absolute;
+	top: 3px;
+	left: 3px;
+	background:rgb(73,73,73);
+	border: none;
+	display: inline-block;
+	outline: none;
+	/* content: 'Select some files'; */
+}
+
+.topDeck .controls #doUpload {
+    position: absolute;
+	
+    top: 3px;
+    left: 602px;
+    padding: 9px;
+    border: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background: rgb(150, 190, 150);
+}
+
+.topDeck .controls .progressBarDiv {
+	position:absolute;
+	width: 594px;
+	height: 3px;
+
+	/* border:1px solid red; */
+	top: 44px;
+	left: 7px;
+}
+
+.progressBarDiv .progress {
+	position:relative;
+	background: rgb(163, 229, 163);
+	height:2px;
+	width: 0%;
+	box-shadow:0px 0px 5px rgb(0,255,0);
+}
+
+.topDeck .controls .status {
+	position:absolute;
+	color: #AFAFAF;
+	margin:0px;
+	padding:0px;
+	top: 49px;
+	font-family:sans-serif;
+	font-weight:normal;
+	left:10px;
+ 	display:none; 
+}
+
+.logo h1 {
+	position:absolute;
+	left: 67px;
+	margin: 0px;
+	top: 16px;
+	font-family: 'Keania One', cursive;
+	color: #FFF;
+}
+
+.container .gallery {
+	position:relative;
+	background: rgba(60, 60, 60, 0.07);
+	width:100%;
+	height:100%;
+	overflow-y: auto;
+}
+
+.gallery ul {
+	position:relative;
+	margin: 5px;
+	padding:0px;
+	list-style:none;
+	
+}
+
+.gallery ul li {
+	width: 300px;
+	height: 250px;
+	border:1px solid;
+	float:left;
+	margin:10px;
+	background: rgb(0, 0, 0);
+	box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
+	-webkit-transition:-webkit-transform 0.2s;
+	-ms-transition:-ms-transform 0.2s;
+	-moz-transition:-moz-transform 0.2s;
+	-o-transition:-o-transform 0.2s;
+	transition:transform 0.2s;
+	position: relative;
+	border-radius: 7px;
+	overflow:hidden;
+}
+
+.gallery li .imageHolder {
+	position:absolute;
+	width: 300px;
+	height: 250px;
+	top: 0px;
+	min-width: 300px;
+	min-height: 250px;
+	overflow: hidden;
+}
+
+.imageHolder img {
+	position: absolute;
+	display:block;
+	width: 300px;
+	top: 50%;
+	bottom: 50%;
+	margin: auto;
+}
+
+.gallery li .overlay {
+	position:absolute;
+	width:300px;
+	height:250px;
+	/*background:rgba(255,255,255,0.2);*/
+	z-index:10;
+	opacity:0.2;
+	-webkit-transition:opacity 0.5s;
+	-ms-transition:opacity 0.5s;
+	-moz-transition:opacity 0.5s;
+	-o-transition:opacity 0.5s;
+	transition:opacity 0.5s;
+}
+
+.gallery li .overlay:hover {
+	opacity:1;
+}
+
+.gallery li .overlay .voteCtrl {
+	position: absolute;
+	/* background: rgba(255, 255, 255, 0.18); */
+	width: 100px;
+	height: 20px;
+	left: 10px;
+	bottom: 10px;
+}
+
+.gallery li .overlay .voteCtrl a img {
+	position:absolute;
+}
+
+.gallery li .overlay .voteCtrl h4 {
+	position:absolute;
+	top:0px;
+	color: #FFF;
+	margin: 0px;
+	left: 25px;
+	font-family: sans-serif;
+	font-weight: normal;
+	font-size: 14px;
+	top: 2px;
+}
+.gallery ul li:hover {
+	-webkit-transform:scale(1.05);
+	-ms-transform:scale(1.05);
+	-moz-transform:scale(1.05);
+	-o-transform:scale(1.05);
+	transform:scale(1.05);
+}

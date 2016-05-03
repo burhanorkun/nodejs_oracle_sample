@@ -1,0 +1,11 @@
+# Node Dependencies
+node_modules
+.idea
+router.js
+public/css/chatroom.css
+public/css/home.css
+public/css/room.css
+public/images/turkcell-logo-cello.jpg
+
+# dev.json
+app/config/development.json
