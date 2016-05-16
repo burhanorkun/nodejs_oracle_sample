@@ -32,7 +32,7 @@ router.get('/', function (req, res, next) {
     res.render('index', {title: 'Welcome to Score Screen'});
 });
 
-router.get("/sonuc", function (req, res) {
+router.get("/result", function (req, res) {
     var customerNo = req.query.customerNo || 'Please fill correct number';
     var currentScore;
     oracledb.getConnection(
@@ -43,7 +43,7 @@ router.get("/sonuc", function (req, res) {
         },
         function(err, connection)
         {
-            if (err) { console.error(err.message); res.render('sonuc', {result: 'Oracle error!'}); return; }
+            if (err) { console.error(err.message); res.render('result', {result: 'Oracle error!'}); return; }
 
             connection.execute(
                 "select score from account_score " +
@@ -53,13 +53,13 @@ router.get("/sonuc", function (req, res) {
                 {
                     if (err) {
                         console.error(err.message);
-                        res.render('sonuc', {result: 'Oracle error!'});
+                        res.render('result', {result: 'Oracle error!'});
                         return;
                     }
                     console.log(result.rows[0][0]);
                     currentScore = result.rows[0][0]||0;
 
-                    res.render('sonuc', {result: currentScore, customerNo: customerNo});
+                    res.render('result', {result: currentScore, customerNo: customerNo});
 
                     doRelease(connection); //!!
                 });
@@ -79,7 +79,7 @@ router.get("/updateScore", function(req, res, next){
         },
         function(err, connection)
         {
-            if (err) { console.error(err.message); res.render('sonuc', {result: 'Oracle error!'}); return; }
+            if (err) { console.error(err.message); res.render('result', {result: 'Oracle error!'}); return; }
 
             connection.execute(
                 "UPDATE account_score SET score = :score WHERE account_number = :accNo",
@@ -93,7 +93,7 @@ router.get("/updateScore", function(req, res, next){
                     else {
                         console.log("Rows updated " + result.rowsAffected);
 
-                        res.render('sonuc', {result: nextScore, customerNo: customerNo});
+                        res.render('result', {result: nextScore, customerNo: customerNo});
 
                         doRelease(connection);  //!!
                     }
