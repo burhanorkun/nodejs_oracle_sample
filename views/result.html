@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container">
-    <div class="topDeck">s
+    <div class="topDeck">
         <div class="logo">
             <h1>Screen of the Your Current Score</h1>
         </div>
@@ -17,7 +17,7 @@
         <ul>
             <h2>Customer No: {{customerNo}} ,Result => {{result}} Current Score.</h2>
         </ul>
-        <form action="/updateScore">
+        <form action="/updateScore" method="post">
             <input type="text" name="nextScore" value="" id="nextScore">
             <input type="hidden" name="customerNo" value="{{customerNo}}">
             <input type="submit" value="Update Score">
