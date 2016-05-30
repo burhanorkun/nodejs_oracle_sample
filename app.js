@@ -37,16 +37,17 @@ router.get("/result", function (req, res) {
     var currentScore;
     oracledb.getConnection(
         {
-            user          : "xxxxx",
-            password      : "xxxxx",
-            connectString : "xxxxx"
+            user          : "******",
+            password      : "******",
+            connectString : "******"
         },
         function(err, connection)
         {
-            if (err) { console.error(err.message); res.render('result', {result: 'Oracle error!'}); return; }
+            if (err) { console.error(err.message);
+                res.render('result', {result: 'Oracle error!'}); return; }
 
             connection.execute(
-                "select score from account_score " +
+                "select score from bonus.account_score " +
                 "where account_number=:0 ",
                 customerNo.split(),  // for excample -> ['6820393'],  // bind value for :id
                 function(err, result)
@@ -56,7 +57,7 @@ router.get("/result", function (req, res) {
                         res.render('result', {result: 'Oracle error!'});
                         return;
                     }
-                    console.log(result.rows[0][0]);
+                    //console.log(result.rows[0][0]);
                     currentScore = result.rows[0][0]||0;
 
                     res.render('result', {result: currentScore, customerNo: customerNo});
@@ -67,22 +68,22 @@ router.get("/result", function (req, res) {
 
 });
 
-router.get("/updateScore", function(req, res, next){
-    var customerNo = req.query.customerNo;
-    var nextScore = req.query.nextScore;
+router.post("/updateScore", function(req, res, next){
+    var customerNo = req.body.customerNo; //req.query.customerNo;
+    var nextScore = req.body.nextScore; //req.query.nextScore;
 
     oracledb.getConnection(
         {
-            user          : "xxxxx",
-            password      : "xxxxx",
-            connectString : "xxxxx"
+            user          : "bonus",
+            password      : "d_bonus",
+            connectString : "bscsdev"
         },
         function(err, connection)
         {
             if (err) { console.error(err.message); res.render('result', {result: 'Oracle error!'}); return; }
 
             connection.execute(
-                "UPDATE account_score SET score = :score WHERE account_number = :accNo",
+                "UPDATE bonus.account_score SET score = :score WHERE account_number = :accNo",
                 {score: nextScore, accNo: customerNo},
                 {autoCommit : true},
                 function(err, result)
