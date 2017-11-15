@@ -74,9 +74,9 @@ router.post("/updateScore", function(req, res, next){
 
     oracledb.getConnection(
         {
-            user          : "bonus",
-            password      : "d_bonus",
-            connectString : "bscsdev"
+            user          : "*****",
+            password      : "*****",
+            connectString : "*****"
         },
         function(err, connection)
         {
